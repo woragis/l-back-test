@@ -33,6 +33,7 @@ jobs:
           USER_POOL_ID: ${{ secrets.USER_POOL_ID }}
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
         run: |
           npx serverless deploy > serverless-output.txt
           cat serverless-output.txt
