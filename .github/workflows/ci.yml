@@ -43,7 +43,7 @@ jobs:
         run: |
           npx serverless deploy > serverless-output.txt
           cat serverless-output.txt
-          endpoint=$(grep -o 'https://[a-zA-Z0-9\-\.]*\.execute-api\.[a-zA-Z0-9\-]*\.amazonaws.com/.*' test.txt | head -n 30)
+          endpoint=$(grep -o 'https://[a-zA-Z0-9\-\.]*\.execute-api\.[a-zA-Z0-9\-]*\.amazonaws.com/.*' serverless-output.txt | head -n 30)
           echo "API_URL=$endpoint" >> $GITHUB_OUTPUT
           echo "API_URL=$endpoint" >> serverless-output.txt
 
