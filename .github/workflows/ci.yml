@@ -43,7 +43,7 @@ jobs:
         run: echo "Deployed to ${{ steps.deploy.outputs.API_URL }}"
 
       - name: 📦 Upload Output as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: serverless-deployment-log
           path: serverless-output.txt
