@@ -41,7 +41,7 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
         run: |
-          npx serverless deploy > serverless-output.txt
+          npx serverless deploy > serverless-output.txt 2>&1
           cat serverless-output.txt
           endpoint=$(grep -o 'https://[a-zA-Z0-9\-\.]*\.execute-api\.[a-zA-Z0-9\-]*\.amazonaws.com/.*' serverless-output.txt | head -n 30)
           echo "API_URL=$endpoint" >> $GITHUB_OUTPUT
