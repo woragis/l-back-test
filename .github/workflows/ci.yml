@@ -37,8 +37,9 @@ jobs:
         run: |
           npx serverless deploy > serverless-output.txt
           cat serverless-output.txt
-          endpoint=$(grep -o 'https.*execute-api.*' serverless-output.txt | head -n 1)
+          endpoint=$(grep -o 'https://[^ ]*\.execute-api.*' serverless-output.txt | head -n 1)
           echo "API_URL=$endpoint" >> $GITHUB_OUTPUT
+          echo "API_URL=$endpoint" >> serverless-output.txt
 
       - name: 📢 Print API URL
         run: echo "Deployed to ${{ steps.deploy.outputs.API_URL }}"
